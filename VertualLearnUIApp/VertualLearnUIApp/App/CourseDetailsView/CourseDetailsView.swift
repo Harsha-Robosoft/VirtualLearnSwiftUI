@@ -14,8 +14,8 @@ struct CourseDetailsView: View {
     let collectionViewIndex: Int
     var itemDetal: HomeChoiceYourCourseCollectionViewdata
     
-    @State var overviewTapped = false
-    @State var chaptersTapped = true
+    @State var overviewTapped = true
+    @State var chaptersTapped = false
     @State var joinTheCourse = false
     @State var showCourseReport = false
     @State var indexTapped = 11
@@ -275,20 +275,22 @@ struct TopImageOverlayView: View{
                                         
                                     }else if helper.homeChoiceYourCourseCollectionViewdata[collectionindex].courseCompleted && helper.ongoingCounter.contains(itemDetal.courseCountNum){
                                         
-                                        print("on on on before: \(helper.ongoingCourse.count)")
-                                        print("on on on before: \(helper.completedCourseArray.count)")
+                                        print("on on on ongoing before: \(helper.ongoingCourse.count)")
+                                        print("on on on completed before: \(helper.completedCourseArray.count)")
                                         helper.ongoingCounter = helper.ongoingCounter.filter{ $0 != itemDetal.courseCountNum}
                                         helper.ongoingCourse = helper.ongoingCourse.filter{$0.courseCountNum != itemDetal.courseCountNum}
                                         helper.completedCourseArray.append(helper.homeChoiceYourCourseCollectionViewdata[collectionindex])
                                         
-                                        print("on on on after: \(helper.ongoingCourse.count)")
-                                        print("on on on after: \(helper.completedCourseArray.count)")
+                                        print("on on on ongoing after: \(helper.ongoingCourse.count)")
+                                        print("on on on complete after: \(helper.completedCourseArray.count)")
                                         
                                     }else if !helper.homeChoiceYourCourseCollectionViewdata[collectionindex].courseCompleted && helper.ongoingCounter.contains(itemDetal.courseCountNum){
                                         
                                         helper.ongoingCounter = helper.ongoingCounter.filter{ $0 != itemDetal.courseCountNum}
                                         helper.ongoingCourse = helper.ongoingCourse.filter{$0.courseCountNum != itemDetal.courseCountNum}
                                         helper.ongoingCourse.append(helper.homeChoiceYourCourseCollectionViewdata[collectionindex])
+                                    }else if helper.homeChoiceYourCourseCollectionViewdata[collectionindex].courseCompleted && helper.ongoingCounter.isEmpty{
+                                        helper.completedCourseArray.append(helper.homeChoiceYourCourseCollectionViewdata[collectionindex])
                                     }
                                     print("####### ongoing count: \(helper.ongoingCourse.count)")
                                     present.wrappedValue.dismiss()

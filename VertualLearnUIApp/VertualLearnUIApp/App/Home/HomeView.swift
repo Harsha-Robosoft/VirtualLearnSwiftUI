@@ -89,11 +89,11 @@ struct HomeView: View {
                                         .fontDesign(.rounded)
                                         .foregroundColor(.white)
                                     
-                                    Text(helper.ongoingCourse[arrayLastIndex].title)
+                                    Text(helper.ongoingCourse[helper.ongoingCourse.count - 1].title)
                                         .fontDesign(.rounded)
                                         .foregroundColor(.white)
                                         .padding(.top, 20)
-                                    Text(helper.ongoingCourse[arrayLastIndex].chapters)
+                                    Text(helper.ongoingCourse[helper.ongoingCourse.count - 1].chapters)
                                         .font(.footnote)
                                         .fontDesign(.rounded)
                                         .foregroundColor(.white)
@@ -152,7 +152,7 @@ struct HomeView: View {
                     
                         TopBusinessCourcesView()
                           //MARK: - Side menu navigation start
-                        if !helper.ongoingCourse.isEmpty && helper.ongoingCourse.count - 1 < arrayLastIndex{
+                        if !helper.ongoingCourse.isEmpty{
                             NavigationLink(destination: CourseDetailsView(collectionViewIndex: helper.ongoingCourse[arrayLastIndex].courseCountNum, itemDetal: helper.ongoingCourse[arrayLastIndex], overviewTapped: false, chaptersTapped: true, joinTheCourse: true, indexTapped: helper.ongoingCourse[arrayLastIndex].tappedIndex), isActive: $myOngoingCourse){
                                 EmptyView()
                             }

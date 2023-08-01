@@ -120,6 +120,7 @@ struct OngoingCompletedButtonView: View {
                     .fill( completedTapped ? Color(cgColor: CGColor(red: 0, green: 0, blue: 0.5, alpha: 1)) :  Color.white)
                 )
                 .onTapGesture {
+                    print("COmpleted course count: \(HelperClass.shared.completedCourseArray.count)")
                     withAnimation(.easeIn){
                         ongoingTapped = false
                     }
