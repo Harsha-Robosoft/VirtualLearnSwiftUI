@@ -19,12 +19,13 @@ struct CourseDetailsView: View {
     @State var joinTheCourse = false
     @State var showCourseReport = false
     @State var indexTapped = 11
+    @State var userTapped = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 0){
                 //MARK: - Top image overlay view
-                TopImageOverlayView(courseJoined: $joinTheCourse, tappedIndex: $indexTapped, collectionindex: collectionViewIndex, itemDetal: itemDetal)
+                TopImageOverlayView(userTapped: $userTapped, courseJoined: $joinTheCourse, tappedIndex: $indexTapped, collectionindex: collectionViewIndex, itemDetal: itemDetal)
                 //MARK: - Over view and chapters butoons
                 HStack(alignment: .center, spacing:0){
                     Text("Overview")
@@ -128,6 +129,7 @@ struct CourseDetailsView: View {
                                                 }
                                                 if indexTapped == count{withAnimation(.easeIn){indexTapped = 11}}
                                                 else{withAnimation(.easeOut){indexTapped = count}}
+                                                userTapped = true
                                             }
                                     }
                                 }
@@ -246,6 +248,7 @@ struct CourseDetailsView_Previews: PreviewProvider {
 }
 
 struct TopImageOverlayView: View{
+    @Binding var userTapped: Bool
     @Binding var courseJoined: Bool
     @Binding var tappedIndex: Int
     @State var collectionindex: Int
@@ -284,15 +287,15 @@ struct TopImageOverlayView: View{
                                         print("on on on ongoing after: \(helper.ongoingCourse.count)")
                                         print("on on on complete after: \(helper.completedCourseArray.count)")
                                         
-                                    }else if !helper.homeChoiceYourCourseCollectionViewdata[collectionindex].courseCompleted && helper.ongoingCounter.contains(itemDetal.courseCountNum){
+                                    }else if !helper.homeChoiceYourCourseCollectionViewdata[collectionindex].courseCompleted && helper.ongoingCounter.contains(itemDetal.courseCountNum) && userTapped {
                                         
                                         helper.ongoingCounter = helper.ongoingCounter.filter{ $0 != itemDetal.courseCountNum}
                                         helper.ongoingCourse = helper.ongoingCourse.filter{$0.courseCountNum != itemDetal.courseCountNum}
                                         helper.ongoingCourse.append(helper.homeChoiceYourCourseCollectionViewdata[collectionindex])
                                     }else if helper.homeChoiceYourCourseCollectionViewdata[collectionindex].courseCompleted && helper.ongoingCounter.isEmpty{
+                                        
                                         helper.completedCourseArray.append(helper.homeChoiceYourCourseCollectionViewdata[collectionindex])
                                     }
-                                    print("####### ongoing count: \(helper.ongoingCourse.count)")
                                     present.wrappedValue.dismiss()
                                 }
                             Text(itemDetal.title)

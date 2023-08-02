@@ -38,7 +38,7 @@ struct VideoPlayerView: View {
                     .font(.title2)
                     .padding(.leading)
                     .onTapGesture {
-                        if helper.completedVideos.contains(viewTitle){
+                        if helper.completedVideos.contains(viewTitle + String(chapNum)){
                             toggleIt.toggle()
                             showNext = false
                         }else{

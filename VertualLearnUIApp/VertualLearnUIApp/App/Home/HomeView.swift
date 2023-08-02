@@ -21,9 +21,7 @@ struct HomeView: View {
     @State var myOngoingCourse = false
     
     @ObservedObject var helper = HelperClass.shared
-    
-    @State var arrayLastIndex = 0
-    
+        
     func performOperation() {
         print(burgerButtonTapped)
         switch burgerButtonTapped {
@@ -153,7 +151,7 @@ struct HomeView: View {
                         TopBusinessCourcesView()
                           //MARK: - Side menu navigation start
                         if !helper.ongoingCourse.isEmpty{
-                            NavigationLink(destination: CourseDetailsView(collectionViewIndex: helper.ongoingCourse[arrayLastIndex].courseCountNum, itemDetal: helper.ongoingCourse[arrayLastIndex], overviewTapped: false, chaptersTapped: true, joinTheCourse: true, indexTapped: helper.ongoingCourse[arrayLastIndex].tappedIndex), isActive: $myOngoingCourse){
+                            NavigationLink(destination: CourseDetailsView(collectionViewIndex: helper.ongoingCourse[helper.ongoingCourse.count - 1].courseCountNum, itemDetal: helper.ongoingCourse[helper.ongoingCourse.count - 1], overviewTapped: false, chaptersTapped: true, joinTheCourse: true, indexTapped: helper.ongoingCourse[helper.ongoingCourse.count - 1].tappedIndex), isActive: $myOngoingCourse){
                                 EmptyView()
                             }
                         }
@@ -179,12 +177,6 @@ struct HomeView: View {
                 .onAppear{
                     showLog = false
                     homeScreen = true
-                    if !helper.ongoingCourse.isEmpty{
-                        print("ongoing count: \(helper.ongoingCourse.count)")
-                        print("array count before: \(arrayLastIndex)")
-                        arrayLastIndex = helper.ongoingCourse.count - 1
-                        print("array count after: \(arrayLastIndex)")
-                    }
                 }
             .padding(.leading)
             }

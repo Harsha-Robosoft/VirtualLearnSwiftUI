@@ -24,7 +24,7 @@ struct MyCourseView: View {
                         .fontWeight(.bold)
                         .fontDesign(.rounded)
                         
-                    OngoingCompletedButtonView(ongoingTapped: $ongoingTap, completedTapped: $completedTap)
+                    OngoingCompletedButtonView(ongoingTapped: $ongoingTap)
                 }
                 Spacer()
             }
@@ -35,14 +35,14 @@ struct MyCourseView: View {
                     if ongoingTap {
                         withAnimation(.default){
                             ForEach(0..<helper.ongoingCourse.count){ num in
-                                CourseCardImageView(item: myCourseOngoing[num], tappedIndex: num)
+                                CourseCardImageView(ongointTapped: $ongoingTap, item: myCourseOngoing[num], tappedIndex: num)
                             }
                         }
                         
                     }else{
                         withAnimation(.default){
                             ForEach(0..<helper.completedCourseArray.count){ num in
-                                CourseCardImageView(item: myCourseCompleted[num], tappedIndex: num)
+                                CourseCardImageView(ongointTapped: $ongoingTap, item: myCourseCompleted[num], tappedIndex: num)
                             }
                         }
                         
@@ -92,7 +92,6 @@ struct HeaderView2: View{
 
 struct OngoingCompletedButtonView: View {
     @Binding var ongoingTapped: Bool
-    @Binding var completedTapped:Bool
     var body: some View {
         HStack(alignment: .center, spacing: 20){
             Text("Ongoing")
@@ -107,26 +106,21 @@ struct OngoingCompletedButtonView: View {
                     withAnimation(.easeOut){
                         ongoingTapped = true
                     }
-                    withAnimation(.easeIn){
-                        completedTapped = false
-                    }
                 }
             Text("Completed")
-                .foregroundColor(completedTapped ? .white : .gray)
+                .foregroundColor(ongoingTapped ? .gray : .white)
                 .padding(.vertical, 5)
                 .padding(.horizontal)
                 .background(
                 RoundedRectangle(cornerRadius: 5)
-                    .fill( completedTapped ? Color(cgColor: CGColor(red: 0, green: 0, blue: 0.5, alpha: 1)) :  Color.white)
+                    .fill( ongoingTapped ? Color.white : Color(cgColor: CGColor(red: 0, green: 0, blue: 0.5, alpha: 1)))
                 )
                 .onTapGesture {
                     print("COmpleted course count: \(HelperClass.shared.completedCourseArray.count)")
                     withAnimation(.easeIn){
                         ongoingTapped = false
                     }
-                    withAnimation(.easeOut){
-                        completedTapped = true
-                    }
+
                 }
         }
         .font(.footnote)
@@ -140,6 +134,7 @@ struct OngoingCompletedButtonView: View {
 
 struct CourseCardImageView: View{
     @ObservedObject var helper = HelperClass.shared
+    @Binding var ongointTapped: Bool
     @State var continueButtonTapped = false
     @State var viewCertificateButtonTapped = false
     let item: MyOngoingCourse
@@ -155,10 +150,11 @@ struct CourseCardImageView: View{
                         .fontDesign(.rounded)
                         .foregroundColor(.white)
                     
-                    Text(item.title)
+                    Text( ongointTapped ? helper.ongoingCourse[tappedIndex].title : helper.completedCourseArray[tappedIndex].title)
                         .fontDesign(.rounded)
                         .foregroundColor(.white)
                         .padding(.top, 20)
+                    
                     Text(item.chapters_approverate)
                         .font(.footnote)
                         .fontDesign(.rounded)
@@ -181,6 +177,7 @@ struct CourseCardImageView: View{
                     Button{
                         if item.buttonTitle.lowercased() == "continue"{
                             print("but num01: \(tappedIndex)")
+                            print("tapped title: \(helper.ongoingCourse[tappedIndex].title)")
                             continueButtonTapped = true
                         }else{
                             print("but num02: \(tappedIndex)")
