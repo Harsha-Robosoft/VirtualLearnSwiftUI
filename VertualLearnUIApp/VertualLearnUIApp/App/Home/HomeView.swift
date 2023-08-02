@@ -72,7 +72,7 @@ struct HomeView: View {
                         .padding(.trailing)
                     
                     GreetingNameView()
-                        .padding(.top, 30)
+                        .padding(.top, 20)
                     
                     CollectionView01()
                     
