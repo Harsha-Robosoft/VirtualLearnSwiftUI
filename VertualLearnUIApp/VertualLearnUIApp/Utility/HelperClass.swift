@@ -642,6 +642,267 @@ class HelperClass: ObservableObject{
                 )
             ],
             tappedIndex: 11,
+            courseCompleted: false),
+        
+        HomeChoiceYourCourseCollectionViewdata(
+            id: UUID(),
+            courseCountNum: 3,
+            image: "img_course2_bg",
+            title: "Digital Marketing for 2021 Masterclass testing 01",
+            chapters: "14 Chapters",
+            chapterDetails: "18 Chapters | 33 Lessons",
+            type: "Marketing",
+            chaptersList: [
+                
+                ChaptersList(
+                    id: UUID(),
+                    chapterName: "Chapter 1 - Introduction to the course", courseName: "Learn Figma - UI/UX Design Essential Training",
+                    chapterContent: [
+                        ChapterContent(id: UUID(), number: "01", title: "Introduction", duration: "0.34 mins", completed: false, start: true),
+                        ChapterContent(id: UUID(), number: "02", title: "Using the Exercise Files", duration: "01.06 mins", completed: false, start: false)
+                    ],
+                    chapCompleted: false
+                ),
+                ChaptersList(
+                    id: UUID(),
+                    chapterName: "Chapter 2 - Learning the Figma Interface", courseName: "Learn Figma - UI/UX Design Essential Training",
+                    chapterContent: [
+                        ChapterContent(id: UUID(), number: "01", title: "Nange en gottu", duration: "17.04 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "02", title: "Ninge en gottu", duration: "5.30 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "03", title: "Yarige en gottu", duration: "1.23 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "04", title: "Yarigu enu gottilla", duration: "1 mins", completed: false, start: false)
+                    ],
+                    testIs: ModuleTest(
+                        id: UUID(),
+                        image: "icn_moduletest",
+                        module: "Final Test",
+                        chapter: "Chapter 2",
+                        subTitle: "Learning the Figma Interface",
+                        title: "Final Test",
+                        duration: "30 Mins | 20 Questions",
+                        testCompleted: false,
+                        startTest: false,
+                        testDetsails: [
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 1 = ?",
+                                option01: "1",
+                                option02: "2",
+                                option03: "3",
+                                option04: "4",
+                                correctAnswer: "3",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            ),
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 2 = ?",
+                                option01: "6",
+                                option02: "2",
+                                option03: "3",
+                                option04: "4",
+                                correctAnswer: "6",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            ),
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 3 = ?",
+                                option01: "1",
+                                option02: "2",
+                                option03: "9",
+                                option04: "4",
+                                correctAnswer: "9",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            )
+                        ], testResult: TestResult(id: UUID(), passgrad: "00", correctAnswer: "0", wrongAnswer: "0")
+                    ),
+                    chapCompleted: false,
+                    combinedPercentage: 0
+                )
+            ],
+            tappedIndex: 11,
+            courseCompleted: false),
+        
+        HomeChoiceYourCourseCollectionViewdata(
+            id: UUID(),
+            courseCountNum: 3,
+            image: "img_course2_bg",
+            title: "Digital Marketing for 2021 Masterclass testing 01",
+            chapters: "14 Chapters",
+            chapterDetails: "18 Chapters | 33 Lessons",
+            type: "Marketing",
+            chaptersList: [
+                
+                ChaptersList(
+                    id: UUID(),
+                    chapterName: "Chapter 1 - Introduction to the course", courseName: "Learn Figma - UI/UX Design Essential Training",
+                    chapterContent: [
+                        ChapterContent(id: UUID(), number: "01", title: "Introduction", duration: "0.34 mins", completed: false, start: true),
+                        ChapterContent(id: UUID(), number: "02", title: "Using the Exercise Files", duration: "01.06 mins", completed: false, start: false)
+                    ],
+                    chapCompleted: false
+                ),
+                ChaptersList(
+                    id: UUID(),
+                    chapterName: "Chapter 2 - Learning the Figma Interface", courseName: "Learn Figma - UI/UX Design Essential Training",
+                    chapterContent: [
+                        ChapterContent(id: UUID(), number: "01", title: "Nange en gottu", duration: "17.04 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "02", title: "Ninge en gottu", duration: "5.30 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "03", title: "Yarige en gottu", duration: "1.23 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "04", title: "Yarigu enu gottilla", duration: "1 mins", completed: false, start: false)
+                    ],
+                    testIs: ModuleTest(
+                        id: UUID(),
+                        image: "icn_moduletest",
+                        module: "Final Test",
+                        chapter: "Chapter 2",
+                        subTitle: "Learning the Figma Interface",
+                        title: "Final Test",
+                        duration: "30 Mins | 20 Questions",
+                        testCompleted: false,
+                        startTest: false,
+                        testDetsails: [
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 1 = ?",
+                                option01: "1",
+                                option02: "2",
+                                option03: "3",
+                                option04: "4",
+                                correctAnswer: "3",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            ),
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 2 = ?",
+                                option01: "6",
+                                option02: "2",
+                                option03: "3",
+                                option04: "4",
+                                correctAnswer: "6",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            ),
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 3 = ?",
+                                option01: "1",
+                                option02: "2",
+                                option03: "9",
+                                option04: "4",
+                                correctAnswer: "9",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            )
+                        ], testResult: TestResult(id: UUID(), passgrad: "00", correctAnswer: "0", wrongAnswer: "0")
+                    ),
+                    chapCompleted: false,
+                    combinedPercentage: 0
+                )
+            ],
+            tappedIndex: 11,
+            courseCompleted: false),
+        
+        HomeChoiceYourCourseCollectionViewdata(
+            id: UUID(),
+            courseCountNum: 3,
+            image: "img_course2_bg",
+            title: "Digital Marketing for 2021 Masterclass testing 01",
+            chapters: "14 Chapters",
+            chapterDetails: "18 Chapters | 33 Lessons",
+            type: "Marketing",
+            chaptersList: [
+                
+                ChaptersList(
+                    id: UUID(),
+                    chapterName: "Chapter 1 - Introduction to the course", courseName: "Learn Figma - UI/UX Design Essential Training",
+                    chapterContent: [
+                        ChapterContent(id: UUID(), number: "01", title: "Introduction", duration: "0.34 mins", completed: false, start: true),
+                        ChapterContent(id: UUID(), number: "02", title: "Using the Exercise Files", duration: "01.06 mins", completed: false, start: false)
+                    ],
+                    chapCompleted: false
+                ),
+                ChaptersList(
+                    id: UUID(),
+                    chapterName: "Chapter 2 - Learning the Figma Interface", courseName: "Learn Figma - UI/UX Design Essential Training",
+                    chapterContent: [
+                        ChapterContent(id: UUID(), number: "01", title: "Nange en gottu", duration: "17.04 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "02", title: "Ninge en gottu", duration: "5.30 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "03", title: "Yarige en gottu", duration: "1.23 hour", completed: false, start: false),
+                        ChapterContent(id: UUID(), number: "04", title: "Yarigu enu gottilla", duration: "1 mins", completed: false, start: false)
+                    ],
+                    testIs: ModuleTest(
+                        id: UUID(),
+                        image: "icn_moduletest",
+                        module: "Final Test",
+                        chapter: "Chapter 2",
+                        subTitle: "Learning the Figma Interface",
+                        title: "Final Test",
+                        duration: "30 Mins | 20 Questions",
+                        testCompleted: false,
+                        startTest: false,
+                        testDetsails: [
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 1 = ?",
+                                option01: "1",
+                                option02: "2",
+                                option03: "3",
+                                option04: "4",
+                                correctAnswer: "3",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            ),
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 2 = ?",
+                                option01: "6",
+                                option02: "2",
+                                option03: "3",
+                                option04: "4",
+                                correctAnswer: "6",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            ),
+                            TestDetsails(
+                                id: UUID(),
+                                questionNum:1,
+                                question: "What is 3 x 3 = ?",
+                                option01: "1",
+                                option02: "2",
+                                option03: "9",
+                                option04: "4",
+                                correctAnswer: "9",
+                                answer: nil,
+                                tappedoption: "",
+                                questionAttempted: false
+                            )
+                        ], testResult: TestResult(id: UUID(), passgrad: "00", correctAnswer: "0", wrongAnswer: "0")
+                    ),
+                    chapCompleted: false,
+                    combinedPercentage: 0
+                )
+            ],
+            tappedIndex: 11,
             courseCompleted: false)
     ]
     
